@@ -38,7 +38,17 @@ public class Main {
 				 */
 
 			} else if (input == 2) { // 랭킹확인
-
+				System.out.println("랭킹확인");
+				
+				System.out.println("ID\t이름\t승점\t레벨");
+				
+				ArrayList<MemberDTO> result = control.Con_lank();
+				
+				for (MemberDTO r : result) {
+					System.out.println(r.getId() + "\t" + r.getName() + "\t"
+					                   + r.getWinnum() + "\t" + r.getLv());
+				}
+				
 			} else if (input == 3) {
 				System.out.println("==회원가입==");
 
@@ -78,6 +88,7 @@ public class Main {
 			}
 
 		}
+		
 
 	}
 
