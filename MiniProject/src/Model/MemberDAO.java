@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDAO {
 	// [DAO]
@@ -87,6 +88,36 @@ public class MemberDAO {
 		}
 
 		return result;
+	}
+
+	public ArrayList<MemberDTO> lank() {
+		
+		ArrayList<MemberDTO> resultList = new ArrayList<MemberDTO>();
+		getConn();
+		
+		String sql = "SELECT ID,NAME,WINNUM,LV FROM USER_INFO WHERE ROWNUM <=5 ORDER BY WINNUM DESC";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			// ResultSet 형태의 결과물을
+			// ArrayList<MemberDTO> 타입 데이터로 변환
+			
+			while(rs.next()) {
+				String id = rs.getString("ID");
+				String name = rs.getString("NAME");
+				int winnum = rs.getInt("WINNUM");
+				int lv = rs.getInt("LV");
+				resultList.add(new MemberDTO(id, name, winnum, lv));			
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return resultList;
 	}
 
 }

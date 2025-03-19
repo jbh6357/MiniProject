@@ -12,7 +12,9 @@ public class Controller {
 	MemberDAO dao = new MemberDAO();
 	// join()의 리턴데이터
 	int result = 0; 
-	
+	// list()의 리턴데이터
+		ArrayList<MemberDTO> resultList = new ArrayList<MemberDTO>();
+		
 	// 회원가입용
 	public int Con_join(String id, String pw, String name) {
 		// 전달해야 하는 데이터를 하나의 묶음으로 만들어서(객체 생성)	
@@ -30,5 +32,13 @@ public class Controller {
 		result = dao.delete(dto);
 		return result;
 	}
+	
+	// 랭킹확인용
+	public ArrayList<MemberDTO> Con_lank(){ 
+		resultList = dao.lank();	
+		 return resultList;
+	}
+
+	
 	
 }
