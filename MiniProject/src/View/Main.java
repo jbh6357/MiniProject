@@ -22,20 +22,6 @@ public class Main {
 				System.out.println("플레이 인원 수 선택 : ");
 				int input2 = sc.nextInt();
 
-				/**
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 */
 
 			} else if (input == 2) { // 랭킹확인
 
