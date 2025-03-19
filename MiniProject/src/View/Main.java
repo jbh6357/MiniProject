@@ -74,20 +74,6 @@ public class Main {
 					System.out.println("인원수를 다시 선택해주세요. 2 ~ 4명이 플레이 할 수 있는 게임입니다.");
 				}
 
-				/**
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 */
 
 			} else if (input == 2) { // 랭킹확인
 				System.out.println("랭킹확인");
