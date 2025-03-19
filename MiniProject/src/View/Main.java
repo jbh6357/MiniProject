@@ -26,7 +26,10 @@ public class Main {
 				+ "|  HAWAII | SYDNEY |  HONGKONG |  SWISS | OTTAWA |   BERLIN  |   ISLAND   |\r\n"
 				+ "+---------+--------+-----------+--------+--------+-----------+------------+\r\n" + "");
 	}
-
+	
+	public static void print(ArrayList<MemberDTO> players) {
+		
+	}
 	public static void game(ArrayList<MemberDTO> players) {
 		Scanner sc = new Scanner(System.in);
 		Controller control = new Controller();
@@ -41,7 +44,9 @@ public class Main {
 			
 			for(int i = 0; i<players.size(); i++)
 			{
-				print();   // 부루마블 판 보여주기
+				print();          // 부루마블 판 보여주기
+				
+				print(players);   // TODO : 플레이어 정보 출력 (이름, 잔액, 위치)
 				           
 				/* TODO : 주사위던지기(두 번)
 				
