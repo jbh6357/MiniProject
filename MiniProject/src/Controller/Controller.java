@@ -4,12 +4,16 @@ import Model.MemberDAO;
 import Model.MemberDTO;
 import java.util.ArrayList;
 
+import Model.BuildingDAO;
+import Model.BuildingDTO;
+
 public class Controller {
 	// [Controller]
 	// 사용자의 요청에 따라서 그에 맞는 DB로직을 실행
 
 	// dao : db연결, 쿼리문실행 메소드
 	MemberDAO dao = new MemberDAO();
+	BuildingDAO dao_b = new BuildingDAO();
 	// join()의 리턴데이터
 	int result = 0;
 	// list()의 리턴데이터
@@ -34,10 +38,16 @@ public class Controller {
 	}
 
 	// 로그인용
-	public int Con_login(String id, String pw) {
+	public MemberDTO Con_login(String id, String pw) {
 		MemberDTO dto = new MemberDTO(id, pw);
-		result = dao.login(dto);
-		return result;
+		dto.setName(dao.login(dto));
+		
+		if(dto.getName() != null)
+		{
+		   return dto;
+		}
+		
+		return null;
 	}
 
 	// 랭킹확인용
@@ -45,5 +55,10 @@ public class Controller {
 		resultList = dao.lank();
 		return resultList;
 	}
+	
+	// 빌딩 객체 생성용
+	public ArrayList<BuildingDTO> Con_list() {
+        return dao_b.list();
+    }
 
 }

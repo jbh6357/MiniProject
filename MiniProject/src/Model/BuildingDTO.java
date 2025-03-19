@@ -1,4 +1,4 @@
-package Building;
+package Model;
 
 public class BuildingDTO {
 	
