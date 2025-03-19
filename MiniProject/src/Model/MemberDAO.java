@@ -67,8 +67,28 @@ public class MemberDAO {
 		return result;
 	}
 
+	public int login(MemberDTO dto) { // 로그인 쿼리 메소드
+		getConn();
+
+		String sql = "SELECT * FROM USER_INFO WHERE ID = ? AND PW = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+			result = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return result;
+	}
+
 	public int delete(MemberDTO dto) { // 회원탈퇴 쿼리 메소드
-		
+
 		getConn();
 
 		String sql = "DELETE FROM USER_INFO WHERE ID = ? AND PW = ?";
@@ -91,32 +111,32 @@ public class MemberDAO {
 	}
 
 	public ArrayList<MemberDTO> lank() {
-		
+
 		ArrayList<MemberDTO> resultList = new ArrayList<MemberDTO>();
 		getConn();
-		
+
 		String sql = "SELECT ID,NAME,WINNUM,LV FROM USER_INFO WHERE ROWNUM <=5 ORDER BY WINNUM DESC";
-		
+
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			
+
 			// ResultSet 형태의 결과물을
 			// ArrayList<MemberDTO> 타입 데이터로 변환
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				String id = rs.getString("ID");
 				String name = rs.getString("NAME");
 				int winnum = rs.getInt("WINNUM");
 				int lv = rs.getInt("LV");
-				resultList.add(new MemberDTO(id, name, winnum, lv));			
+				resultList.add(new MemberDTO(id, name, winnum, lv));
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
-		
+
 		return resultList;
 	}
 
