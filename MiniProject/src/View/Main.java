@@ -32,7 +32,7 @@ public class Main {
 		Controller control = new Controller();
 
 		while (true) {
-			System.out.print("메뉴 선택 [1]게임실행 [2]랭킹확인 [3]회원가입 [4]회원탈퇴 [5]종료 >>");
+			System.out.print("메뉴 선택 [1]게임실행 [2]랭킹확인 [3]회원가입 [4]회원탈퇴 [5]종료 [6]실험 >>");
 			int input = sc.nextInt();
 
 			if (input == 1) {
