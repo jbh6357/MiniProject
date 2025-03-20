@@ -31,11 +31,11 @@ public class MemberDAO extends DAO{
 		return result;
 	}
 
-	public String login(MemberDTO dto) { // 로그인 쿼리 메소드
+	public Player login(MemberDTO dto) { // 로그인 쿼리 메소드
 		getConn();
 
 		String sql = "SELECT NAME FROM USER_INFO WHERE ID = ? AND PW = ?";
-		String name = null;
+		Player p = new Player();
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -43,8 +43,17 @@ public class MemberDAO extends DAO{
 			psmt.setString(2, dto.getPw());
 			rs = psmt.executeQuery();
 
-			if(rs.next()) name = rs.getString("NAME");
-			
+			if(rs.next()) 
+				{  
+				   String name = rs.getString("NAME");
+				   String id = dto.getId();
+				   String pw = dto.getPw();
+				   
+				   p = new Player(id, pw, name);
+				}
+			else {
+				p = null;
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,7 +61,7 @@ public class MemberDAO extends DAO{
 			close();
 		}
 
-		return name;
+		return p;
 	}
 
 	public int delete(MemberDTO dto) { // 회원탈퇴 쿼리 메소드

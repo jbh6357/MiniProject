@@ -2,7 +2,6 @@ package Model;
 
 public class BuildingDTO {
 	
-	private String owner;
     private String name;
     private int price;
     private int fee;

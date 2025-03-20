@@ -2,8 +2,11 @@ package Controller;
 
 import Model.MemberDAO;
 import Model.MemberDTO;
+import Model.Player;
+
 import java.util.ArrayList;
 
+import Model.Building;
 import Model.BuildingDAO;
 import Model.BuildingDTO;
 
@@ -14,6 +17,8 @@ public class Controller {
 	// dao : db연결, 쿼리문실행 메소드
 	MemberDAO dao = new MemberDAO();
 	BuildingDAO dao_b = new BuildingDAO();
+	Player p = new Player();
+	
 	// join()의 리턴데이터
 	int result = 0;
 	// list()의 리턴데이터
@@ -38,13 +43,13 @@ public class Controller {
 	}
 
 	// 로그인용
-	public MemberDTO Con_login(String id, String pw) {
+	public Player Con_login(String id, String pw) {
 		MemberDTO dto = new MemberDTO(id, pw);
-		dto.setName(dao.login(dto));
+		p = dao.login(dto);
 		
-		if(dto.getName() != null)
+		if(p.getName() != null)
 		{
-		   return dto;
+		   return p;
 		}
 		
 		return null;
@@ -57,7 +62,7 @@ public class Controller {
 	}
 	
 	// 빌딩 객체 생성용
-	public ArrayList<BuildingDTO> Con_list() {
+	public ArrayList<Building> Con_list() {
         return dao_b.list();
     }
 

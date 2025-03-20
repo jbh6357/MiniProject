@@ -3,9 +3,11 @@ package View;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Model.Building;
 import Model.BuildingDTO;
 import Controller.Controller;
 import Model.MemberDTO;
+import Model.Player;
 
 public class Main {
 
@@ -27,16 +29,16 @@ public class Main {
 				+ "+---------+--------+-----------+--------+--------+-----------+------------+\r\n" + "");
 	}
 	
-	public static void print(ArrayList<MemberDTO> players) {
+	public static void print(ArrayList<Player> players) {
 		
 	}
-	public static void game(ArrayList<MemberDTO> players) {
+	public static void game(ArrayList<Player> players) {
 		Scanner sc = new Scanner(System.in);
 		Controller control = new Controller();
-		ArrayList<BuildingDTO> buildings = control.Con_list();
-		for(MemberDTO player : players)
+		ArrayList<Building> buildings = control.Con_list();
+		for(Player player : players)
 		{
-			// TODO : 보유머니 지급
+			player.setMoney(1500);
 		}
 		boolean isPlay = true;
 		
@@ -123,11 +125,11 @@ public class Main {
 
 			if (input == 1) {
 
-				System.out.println("플레이 인원 수 선택 : ");
+				System.out.print("플레이 인원 수 선택 : ");
 				int input2 = sc.nextInt();
 				boolean check = true;
 				if (input2 > 1 && input2 <= 4) {
-					ArrayList<MemberDTO> players = new ArrayList<MemberDTO>();
+					ArrayList<Player> players = new ArrayList<Player>();
 					for (int i = 0; i < input2; i++) {
 						System.out.println((i + 1) + "번째 플레이어에 로그인하세요 !");
 						System.out.print("ID : ");
@@ -138,7 +140,7 @@ public class Main {
 						players.add(control.Con_login(id, pw));
 						
 						if (players.get(i) != null) {
-							System.out.println(id + "회원님 로그인 성공!");
+							System.out.println(players.get(i).getName() + "회원님 로그인 성공!");
 						} else {
 							System.out.println(id + "회원님 로그인 실패 ㅠㅠ");
 							check = false;

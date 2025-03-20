@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class BuildingDAO extends DAO {
     
-    public ArrayList<BuildingDTO> list() {
-        ArrayList<BuildingDTO> resultList = new ArrayList<>();
+    public ArrayList<Building> list() {
+        ArrayList<Building> resultList = new ArrayList<>();
         getConn();
 
         String sql = "SELECT * FROM BUILDING_INFO";
@@ -20,7 +20,7 @@ public class BuildingDAO extends DAO {
                 int price = rs.getInt("price");
                 int fee = rs.getInt("fee");
                 int t_price = rs.getInt("t_price");
-                resultList.add(new BuildingDTO(name, price, fee, t_price));
+                resultList.add(new Building(name, price, fee, t_price));
             }
         } catch (SQLException e) {
             e.printStackTrace();
