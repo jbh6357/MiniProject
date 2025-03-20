@@ -30,14 +30,14 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		Controller control = new Controller();
-
+	
 		while (true) {
-			System.out.print("메뉴 선택 [1]게임실행 [2]랭킹확인 [3]회원가입 [4]회원탈퇴 [5]종료 [6]실험 >>");
+			System.out.print("메뉴 선택 [1]게임실행 [2]랭킹확인 [3]회원가입 [4]회원탈퇴 [5]종료 [6]실험 >> ");
 			int input = sc.nextInt();
 
 			if (input == 1) {
 
-				System.out.println("플레이 인원 수 선택 : ");
+				System.out.print("플레이 인원 수 선택 : ");
 				int input2 = sc.nextInt();
 				boolean check = true;
 				if (input2 > 1 && input2 <= 4) {
@@ -69,6 +69,8 @@ public class Main {
 							+ " ⠀⠙⠙⠛⠿⠿⠿⠿⠛⠋⠁⠀⠚⠛⠛⠋⠀      ⠘⠛⠛⠛⠀⠐⠛⠛⠋⠀⠘⠛⠛⠛⠃⠀⠘⠛⠛⠃⠀⠀⠚⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀⠚⠛⠛⠋⠀⠀⠀⠀\r\n");
 
 					print();
+					
+					control.Con_dice();
 
 				} else {
 					System.out.println("인원수를 다시 선택해주세요. 2 ~ 4명이 플레이 할 수 있는 게임입니다.");

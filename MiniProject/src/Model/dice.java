@@ -1,4 +1,4 @@
-package Controller;
+package Model;
 
 import javax.swing.*;
 import java.awt.*;
@@ -68,7 +68,8 @@ public class dice extends JFrame {
 		timer.start(); // 타이머 시작
 	}
 
-	public static void main(String[] args) {
+	public static void dicesample() {
+		System.out.println("주사위를 굴려주세요 !");
 		SwingUtilities.invokeLater(() -> {
 			dice frame = new dice();
 			frame.setVisible(true);

@@ -2,6 +2,8 @@ package Controller;
 
 import Model.MemberDAO;
 import Model.MemberDTO;
+import Model.dice;
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -44,6 +46,11 @@ public class Controller {
 	public ArrayList<MemberDTO> Con_lank() {
 		resultList = dao.lank();
 		return resultList;
+	}
+	
+	// 주사위 굴리기
+	public void Con_dice () {
+		dice.dicesample();
 	}
 
 }
