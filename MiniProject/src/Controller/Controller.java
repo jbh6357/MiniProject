@@ -2,9 +2,17 @@ package Controller;
 
 import Model.MemberDAO;
 import Model.MemberDTO;
-import Model.dice;
+// <<<<<<< kenso
+// import Model.dice;
+// =======
+// import Model.Player;
+// >>>>>>> main
 
 import java.util.ArrayList;
+
+import Model.Building;
+import Model.BuildingDAO;
+import Model.BuildingDTO;
 
 public class Controller {
 	// [Controller]
@@ -12,6 +20,9 @@ public class Controller {
 
 	// dao : db연결, 쿼리문실행 메소드
 	MemberDAO dao = new MemberDAO();
+	BuildingDAO dao_b = new BuildingDAO();
+	Player p = new Player();
+	
 	// join()의 리턴데이터
 	int result = 0;
 	// list()의 리턴데이터
@@ -36,10 +47,16 @@ public class Controller {
 	}
 
 	// 로그인용
-	public int Con_login(String id, String pw) {
+	public Player Con_login(String id, String pw) {
 		MemberDTO dto = new MemberDTO(id, pw);
-		result = dao.login(dto);
-		return result;
+		p = dao.login(dto);
+		
+		if(p.getName() != null)
+		{
+		   return p;
+		}
+		
+		return null;
 	}
 
 	// 랭킹확인용
@@ -48,9 +65,16 @@ public class Controller {
 		return resultList;
 	}
 	
-	// 주사위 굴리기
-	public void Con_dice () {
-		dice.dicesample();
-	}
+// <<<<<<< kenso
+// 	// 주사위 굴리기
+// 	public void Con_dice () {
+// 		dice.dicesample();
+// 	}
+// =======
+// 	// 빌딩 객체 생성용
+// 	public ArrayList<Building> Con_list() {
+//         return dao_b.list();
+//     }
+// >>>>>>> main
 
 }
