@@ -2,7 +2,11 @@ package Controller;
 
 import Model.MemberDAO;
 import Model.MemberDTO;
-import Model.Player;
+// <<<<<<< kenso
+// import Model.dice;
+// =======
+// import Model.Player;
+// >>>>>>> main
 
 import java.util.ArrayList;
 
@@ -61,9 +65,16 @@ public class Controller {
 		return resultList;
 	}
 	
-	// 빌딩 객체 생성용
-	public ArrayList<Building> Con_list() {
-        return dao_b.list();
-    }
+// <<<<<<< kenso
+// 	// 주사위 굴리기
+// 	public void Con_dice () {
+// 		dice.dicesample();
+// 	}
+// =======
+// 	// 빌딩 객체 생성용
+// 	public ArrayList<Building> Con_list() {
+//         return dao_b.list();
+//     }
+// >>>>>>> main
 
 }

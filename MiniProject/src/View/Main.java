@@ -118,9 +118,9 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		Controller control = new Controller();
-
+	
 		while (true) {
-			System.out.print("메뉴 선택 [1]게임실행 [2]랭킹확인 [3]회원가입 [4]회원탈퇴 [5]종료 >>");
+			System.out.print("메뉴 선택 [1]게임실행 [2]랭킹확인 [3]회원가입 [4]회원탈퇴 [5]종료 [6]실험 >> ");
 			int input = sc.nextInt();
 
 			if (input == 1) {
@@ -156,8 +156,15 @@ public class Main {
 							+ "⠘⣿⣿⣿⣧⠀⠀⠛⠛⢻⣿⣿⡏⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡗  ⢸⣿⣿⠇⢻⣿⣿⣿⣿⡿⠁⣾⣿⣿⠃⠀⠀⣿⣿⣿⡏⠉⠉⠉⠉⠁⠀⠀⠀⠸⠟⠛⠁⠀⠀⠀\r\n"
 							+ "⠀⠹⣿⣿⣿⣷⣤⣤⣴⣾⣿⣿⠃⢀⣾⣿⣿⣏⠍⠭⠟⠋⢻⣿⣿⣷⠶⠂⣿⣿⣿⠀⢸⣿⣿⣿⣿⠃⢨⣿⣿⣿⠀⠀⢸⣿⣿⣿⣷⣶⣶⣶⣶⣶⡆⠀⢰⣶⣶⣶⠀⠀⠀\r\n"
 							+ " ⠀⠙⠙⠛⠿⠿⠿⠿⠛⠋⠁⠀⠚⠛⠛⠋⠀      ⠘⠛⠛⠛⠀⠐⠛⠛⠋⠀⠘⠛⠛⠛⠃⠀⠘⠛⠛⠃⠀⠀⠚⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀⠚⠛⠛⠋⠀⠀⠀⠀\r\n");
+// <<<<<<< kenso
+
+// 					print();
 					
-					game(players);
+// 					control.Con_dice();
+// =======
+					
+// 					game(players);
+// >>>>>>> main
 
 				} else {
 					System.out.println("인원수를 다시 선택해주세요. 2 ~ 4명이 플레이 할 수 있는 게임입니다.");
